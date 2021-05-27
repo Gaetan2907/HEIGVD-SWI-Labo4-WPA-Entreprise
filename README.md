@@ -47,33 +47,88 @@ rfkill unblock wlan
 
 Dans cette première partie, vous allez analyser [une connexion WPA Entreprise](files/auth.pcap) avec Wireshark et fournir des captures d’écran indiquant dans chaque capture les données demandées.
 
-- Comparer [la capture](files/auth.pcap) au processus d’authentification donné en théorie (n’oubliez pas les captures d'écran pour illustrer vos comparaisons !). En particulier, identifier les étapes suivantes :
-	- Requête et réponse d’authentification système ouvert
- 	- Requête et réponse d’association (ou reassociation)
-	- Négociation de la méthode d’authentification entreprise
-	- Phase d’initiation. Arrivez-vous à voir l’identité du client ?
-	- Phase hello :
-		- Version TLS
-		- Suites cryptographiques et méthodes de compression proposées par le client et acceptées par l’AP
-		- Nonces
-		- Session ID
-	- Phase de transmission de certificats
-	 	- Echanges des certificats
-		- Change cipher spec
-	- Authentification interne et transmission de la clé WPA (échange chiffré, vu comme « Application data »)
-	- 4-way handshake
+- **Comparer [la capture](files/auth.pcap) au processus d’authentification donné en théorie (n’oubliez pas les captures d'écran pour illustrer vos comparaisons !). En particulier, identifier les étapes suivantes :**
+	- **Requête et réponse d’authentification système ouvert**
+
+Nous pouvons voir sur les deux captures suivantes la correspondance entre le schéma théorique et la capture wireshark concernant la requête et réponse d'authentification système ouvert. 
+
+<img src="img/image-20210527121303218.png" alt="image-20210527121303218" style="zoom:80%;" />
+
+![image-20210527121121864](img/image-20210527121121864.png)
+
+  - **Requête et réponse d’association (ou reassociation)**
+
+  - **Négociation de la méthode d’authentification entreprise**
+
+  Nous pouvons observer sur les captures suivantes la négociation de la méthode d'authentification. 
+
+  ![image-20210527125212347](img/image-20210527125212347.png)
+
+  Le suppliant indique qu'il souhaite utiliser la méthode EAP-PEAP. 
+
+  ![image-20210527125607679](img/image-20210527125607679.png)
+
+  - **Phase d’initiation. Arrivez-vous à voir l’identité du client ?**
+
+  On observe que l'identité du client est joel.gonin 
+
+  ![image-20210527125452487](img/image-20210527125452487.png)
+
+  - **Phase hello :**
+  	
+  	- **Version TLS**
+  	
+  	  ![image-20210527125755761](img/image-20210527125755761.png)
+  	
+  	- **Suites cryptographiques et méthodes de compression proposées par le client et acceptées par l’AP**
+  	
+  	  ![image-20210527125823990](img/image-20210527125823990.png)
+  	
+  	- **Nonces**
+  	
+  	Client : `16e24a729c4b60609b8ce482014ac38f1e9cb8cf2bf8fd30bf8995f1` 
+  	
+  	![image-20210527130103147](img/image-20210527130103147.png)
+  	
+  	Serveur : `003b6c2676ffd79814e56c065e5b0c39cb26600148ca1e9b3e8af83426d46e11`
+  	
+  	![image-20210527130329584](img/image-20210527130329584.png)
+  	
+  	- **Session ID**
+  	
+  	`9f1bbf1e90b88366a836db08d659f906a637ac31920e06f622762ca6c522a64f`
+  	
+  	![image-20210527130424573](img/image-20210527130424573.png)
+  	
+  - **Phase de transmission de certificats**
+
+  ![image-20210527130632032](img/image-20210527130632032.png)
+
+   	- **Echanges des certificats**
+  	
+  	- **Change cipher spec**
+  	
+  	![image-20210527130804154](img/image-20210527130804154.png)
+  	
+  - **Authentification interne et transmission de la clé WPA (échange chiffré, vu comme « Application data »)**
+
+  ![image-20210527130905480](img/image-20210527130905480.png)
+
+  - **4-way handshake**
+
+    ![image-20210527130533517](img/image-20210527130533517.png)
 
 ### Répondez aux questions suivantes :
- 
+
 > **_Question :_** Quelle ou quelles méthode(s) d’authentification est/sont proposé(s) au client ?
 > 
-> **_Réponse :_** 
+> **_Réponse :_** EAP-TLS
 
 ---
 
 > **_Question:_** Quelle méthode d’authentification est finalement utilisée ?
 > 
-> **_Réponse:_** 
+> **_Réponse:_** EAP-PEAP
 
 ---
 
@@ -81,12 +136,11 @@ Dans cette première partie, vous allez analyser [une connexion WPA Entreprise](
 > 
 > - a. Le serveur envoie-t-il un certificat au client ? Pourquoi oui ou non ?
 > 
-> **_Réponse:_**
+> **_Réponse:_** Oui, afin que le client puisse authentifier le serveur et utiliser la clé publique du serveur pour chiffrer la communication. 
 > 
 > - b. Le client envoie-t-il un certificat au serveur ? Pourquoi oui ou non ?
 > 
-> **_Réponse:_**
-> 
+> **_Réponse:_** Non, dans la méthode EAP-PEAP, le client n'envoie pas de certificat, c'est uniquement avec la méthode EAP-TLS que le client doit transmettre un certificat. 
 
 ---
 
