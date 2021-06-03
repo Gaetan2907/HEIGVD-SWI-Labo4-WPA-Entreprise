@@ -78,27 +78,27 @@ Nous pouvons voir sur les deux captures suivantes la correspondance entre le sch
   
   	- **Version TLS**
 
-  	  ![image-20210527125755761](img/image-20210527125755761.png)
-  	
-  	- **Suites cryptographiques et méthodes de compression proposées par le client et acceptées par l’AP**
-  	
-  	  ![image-20210527125823990](img/image-20210527125823990.png)
-  	
-  	- **Nonces**
-  	
-  	Client : `16e24a729c4b60609b8ce482014ac38f1e9cb8cf2bf8fd30bf8995f1` 
-  	
-  	![image-20210527130103147](img/image-20210527130103147.png)
-  	
-  	Serveur : `003b6c2676ffd79814e56c065e5b0c39cb26600148ca1e9b3e8af83426d46e11`
-  	
-  	![image-20210527130329584](img/image-20210527130329584.png)
-  	
-  	- **Session ID**
-  	
-  	`9f1bbf1e90b88366a836db08d659f906a637ac31920e06f622762ca6c522a64f`
-  	
-  	![image-20210527130424573](img/image-20210527130424573.png)
+  ![image-20210527125755761](img/image-20210527125755761.png)
+
+- **Suites cryptographiques et méthodes de compression proposées par le client et acceptées par l’AP**
+
+  ![image-20210527125823990](img/image-20210527125823990.png)
+
+- **Nonces**
+
+Client : `16e24a729c4b60609b8ce482014ac38f1e9cb8cf2bf8fd30bf8995f1` 
+
+![image-20210527130103147](img/image-20210527130103147.png)
+
+Serveur : `003b6c2676ffd79814e56c065e5b0c39cb26600148ca1e9b3e8af83426d46e11`
+
+![image-20210527130329584](img/image-20210527130329584.png)
+
+- **Session ID**
+
+`9f1bbf1e90b88366a836db08d659f906a637ac31920e06f622762ca6c522a64f`
+
+![image-20210527130424573](img/image-20210527130424573.png)
 
   - **Phase de transmission de certificats**
 
