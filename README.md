@@ -75,9 +75,9 @@ Nous pouvons voir sur les deux captures suivantes la correspondance entre le sch
   ![image-20210527125452487](img/image-20210527125452487.png)
 
   - **Phase hello :**
-  	
+  
   	- **Version TLS**
-  	
+
   	  ![image-20210527125755761](img/image-20210527125755761.png)
   	
   	- **Suites cryptographiques et méthodes de compression proposées par le client et acceptées par l’AP**
@@ -99,17 +99,17 @@ Nous pouvons voir sur les deux captures suivantes la correspondance entre le sch
   	`9f1bbf1e90b88366a836db08d659f906a637ac31920e06f622762ca6c522a64f`
   	
   	![image-20210527130424573](img/image-20210527130424573.png)
-  	
+
   - **Phase de transmission de certificats**
 
   ![image-20210527130632032](img/image-20210527130632032.png)
 
-   	- **Echanges des certificats**
-  	
-  	- **Change cipher spec**
-  	
-  	![image-20210527130804154](img/image-20210527130804154.png)
-  	
+- **Echanges des certificats**
+
+- **Change cipher spec**
+
+![image-20210527130804154](img/image-20210527130804154.png)
+
   - **Authentification interne et transmission de la clé WPA (échange chiffré, vu comme « Application data »)**
 
   ![image-20210527130905480](img/image-20210527130905480.png)
