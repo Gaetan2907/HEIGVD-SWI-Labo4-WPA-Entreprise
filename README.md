@@ -75,7 +75,9 @@ Nous pouvons voir sur les deux captures suivantes la correspondance entre le sch
   ![image-20210527125452487](img/image-20210527125452487.png)
 
   - **Phase hello :**
-  
+
+![](img/1.png)
+
   	- **Version TLS**
 
   ![image-20210527125755761](img/image-20210527125755761.png)
@@ -100,19 +102,25 @@ Serveur : `003b6c2676ffd79814e56c065e5b0c39cb26600148ca1e9b3e8af83426d46e11`
 
 ![image-20210527130424573](img/image-20210527130424573.png)
 
-  - **Phase de transmission de certificats**
+  - **Phase de transmission de certificats**  
 
-  ![image-20210527130632032](img/image-20210527130632032.png)
+    Comme on peut le voir nous avons sur le schéma de transmission des certificats avec comme dernier message le **TLS server hello done** et dans la capture wireshark ce même message.
+
+![](img/3.png)
+
+![image-20210527130632032](img/image-20210527130632032.png)
 
 - **Echanges des certificats**
+
+Sur le schéma d'échange des certificats, on peut voir le message **TLS change cipher spec** et ce même message dans la capture wireshark qui indique qu'à partir de ce message, tout sera chiffré et compressé avec les nouvelles clés et algorithmes qui viennent d'être négociés.
+
+![](img/2.png)
 
 - **Change cipher spec**
 
 ![image-20210527130804154](img/image-20210527130804154.png)
 
-  - **Authentification interne et transmission de la clé WPA (échange chiffré, vu comme « Application data »)**
-
-  ![image-20210527130905480](img/image-20210527130905480.png)
+  - **Authentification interne et transmission de la clé WPA (échange chiffré, vu comme « Application data »)**  ![image-20210527130905480](img/image-20210527130905480.png)
 
   - **4-way handshake**
 
