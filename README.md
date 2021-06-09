@@ -78,7 +78,7 @@ Nous pouvons voir sur les deux captures suivantes la correspondance entre le sch
 
 ![](img/1.png)
 
-  	- **Version TLS**
+- **Version TLS**
 
   ![image-20210527125755761](img/image-20210527125755761.png)
 
